@@ -1,0 +1,457 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>AUTODEV REAL ESTATE</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+	  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/loginstyle.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link href="{% static 'css/ihover.css' %}" rel="stylesheet">
+   
+    <!--fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Signika+Negative' rel='stylesheet' type='text/css'>
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+ 
+    <!-- logo -->
+   <link rel="shortcut icon" href="img/logo.png">
+  
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  
+ <!-- data-spy="scroll"  -->
+  <body id="page-top" data-target=".navbar-fixed-top">
+   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	   <div class="container">
+		   
+		   <div class="navbar-header page-scroll">
+			   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				   <span class="sr-only">Toggle Navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>  
+			   </button>
+         
+         <a class="navbar-brand" href="#">
+           <div class="logo">
+   <!--         <img class="wow bounceInLeft"src="img/logo.png">-->
+           </div>
+         </a>
+		   </div>
+       
+       <div class="navbar-collapse collapse">
+         <ul class="nav navbar-nav navbar-right">
+           
+           <li><a href="#home">HOME</a></li>
+          
+           <li><a href="#agent">AGENTS</a></li>
+           <li><a href="#gallery">GALLERY</a></li>
+           <li><a href="#services">SERVICES</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#login" data-toggle="modal" data-target="#login-modal">SIGN IN</a></li>
+          </ul>
+       </div>
+      
+	   </div>
+   </nav>
+ 
+ <!--MODAL LOGIN -->
+  
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<img class="img-circle" id="img_logo" src="{% static 'img/logo.png' %}">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div> 
+<!--DIV Form -->
+                <div id="div-forms">
+ 
+<!--Login Form -->
+                <form id="login-form">
+                <div class="modal-body">
+                <div id="div-login-msg">
+                    <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                    <span id="text-login-msg">Type your username and password</span>
+                    </div>
+				    		<input id="login_username" class="form-control" type="text" placeholder="Username" required>
+				    		<input id="login_password" class="form-control" type="password" placeholder="Password" required>
+                      <div class="checkbox">
+                          <label>
+                             <input type="checkbox"> Remember me
+                          </label>
+                      </div>
+        		    </div>
+                
+				        <div class="modal-footer">
+                      <div>
+                          <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                      </div>
+				    	  <div>
+                      <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                      <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                </div>
+				        </div>
+                </form>
+<!-- End of Login Form -->
+                    
+<!-- Begin of Lost Password Form -->
+                <form id="lost-form" style="display:none;">
+    	    		   <div class="modal-body">
+		    				  <div id="div-lost-msg">
+                      <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                      <span id="text-lost-msg">Type your e-mail.</span>
+                  </div>
+		    				  <input id="lost_email" class="form-control" type="text" placeholder="E-Mail" required>
+            		</div>
+		    		    <div class="modal-footer">
+                  <div>
+                      <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                  </div>
+                  <div>
+                      <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                      <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                  </div>
+		    		    </div>
+                    </form>
+<!-- End of Lost Password Form -->
+                    
+<!-- Begin of Register Form -->
+                <form id="register-form" style="display:none;">
+            		    <div class="modal-body">
+                      
+		    				<div id="div-register-msg">
+                    <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                    <span id="text-register-msg">Register an account.</span>
+                </div>
+                
+		    				<input id="register_username" class="form-control" type="text" placeholder="Username" required>
+                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+            			</div>
+                  
+		    		    <div class="modal-footer">
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                    </div>
+                    <div>
+                        <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                        <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                    </div>
+		    		    </div>
+                </form>
+                    <!-- End of Register Form -->
+                    
+                </div>
+                <!-- End of DIV Form -->
+                
+			</div>
+		</div>
+</div>
+
+<!-- end of login modal-->
+   <!-- slider -->
+  <section id="slider" class="text-center">
+      <div class="container" id="home">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+           </ol>
+          
+          <div class="carousel-inner">
+            <div class="item active">
+              <h1>HOW TO</h1>
+              <h2>SELL QUICK AND EASY</h2>
+              <button type="button" class="btn btn-success">LEARN MORE</button>
+            </div>
+            
+            <div class="item">
+              <h1>INCREASE</h1>
+              <h2>HOMES VALUE</h2>
+              <button type="button" class="btn btn-success">LEARN MORE</button>
+            </div>
+            
+            <div class="item">
+              <h1>HOUSING</h1>
+              <h2>HUNTING MADE EASY</h2>
+              <button type="button" class="btn btn-success">LEARN MORE</button>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+  </section>
+
+<!--end slider-->
+
+<!-- search -->
+  
+  <!-- end of search -->
+<!-- photo -->
+
+ <section id="photo">
+   <div class="container" id="gallery">
+    <div class="row">
+      
+      <div class="col-sm-12 text-center wow fadeIn">
+       
+    <h1><i class="fa fa-trophy"></i> We Are Offering The Best Real Estate Deals</h1>
+        <p>We pride ourselves on taking care of our customers. Between our detailed theme documentation, screencasts tand knowledgebase you’re sure to get up and running in no time.</p>
+       
+      </div>
+      
+    </div>
+     
+   </div> 
+ 
+ </section>
+
+<!-- end photo -->
+
+<!-- agent -->
+<section id="agent"> 
+   <div class="col-sm-12 text-center">
+       
+    <h1>Agents</h1>
+    <h2></h2>
+     
+       
+      </div>
+  <div class="container" id="agent">
+    
+    <div class="row" align="center">
+      
+    <div class="col-md-4 image wow fadeInUp">
+ 
+    <!-- colored -->
+    <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="{% static 'img/nico.jpg' %}" alt="img"></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>Nico Queliza</h3>
+            <p>CEO</p>
+          </div>
+        </div></a></div>
+    <!-- end colored -->
+ 
+  </div>
+
+ <div class="col-md-4 image wow fadeInUp" data-wow-delay="0.2s">
+ 
+    <!-- colored -->
+    <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="{% static 'img/allan.jpg' %}" alt="img"></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>Allan Valdez</h3>
+            <p>Programmer</p>
+          </div>
+        </div></a></div>
+    <!-- end colored -->
+ 
+  </div>
+
+  
+  <div class="col-md-4 image wow fadeInUp" data-wow-delay="0.3s">
+ 
+    <!-- colored -->
+    <div class="ih-item circle colored effect1"><a href="#">
+        <div class="spinner"></div>
+        <div class="img"><img src="{% static 'img/kim2.jpg' %}" alt="img"></div>
+        <div class="info">
+          <div class="info-back">
+            <h3>Kenneth Laqui</h3>
+            <p>Designer</p>
+          </div>
+        </div></a></div>
+    <!-- end colored -->
+ 
+  </div>
+
+    
+    
+  </div>
+  </div>
+  
+</section>
+ <!-- end of design -->
+<!-- email -->
+
+<section id="signup">
+<div class="container" id="services">
+  <div class="row">
+    <h1 class ="sub wow slideInDown">SUBSCRIBER TO OUR COMUNITY</h1>
+    
+    <div class="col-md-4 col-md-offset-4">
+      <div class="input-group">
+        <input type="email" class="form-control wow slideInUp"size="100" placeholder="ENTER YOUR EMAIL">
+        <span class="input-group-btn">
+          <button class="btn btn-default wow slideInUp" type="button"><i class="fa fa-check wow slideInUp"></i></button>
+        </span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  </section>
+  
+
+<!-- email -->
+
+
+<!-- footer -->
+
+<section id="footer">
+  <div class="container" id="about">
+    <div class="row">
+      <div class="col-md-4">
+        <p><a href="#">CREDITS</a> | <a href="#">PRIVACY</a> | <a href="#">OUR TEAMS</a></p>
+        <p>Copyright by 2015. All rights reserved.</p>
+      </div>
+      <div class="col-md-4 col-md-offset-4" align="right">
+        
+        <img class="img-responsive wow bounceInRight" src="{% static 'img/logo.png' %}"/>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+
+<!-- end footer -->
+
+    <!-- jquery -->
+   
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <!-- source -->
+    <script src="{% static 'js/grayscale.js' %}"></script>
+    <script src="{% static 'js/loginjs.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/blur.js' %}"></script>
+    
+    <!-- inline js -->
+    <script>
+      new WOW().init();
+    </script>
+    
+    <script>
+        $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+    </script>
+    <!-- navbar collapse -->
+     <script>
+     $(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+    });
+
+    </script>
+ 
+ <!-- <script>
+    (function ($) {
+      
+    
+     $(document).ready(function(){
+       $(".navbar").show();
+       
+       $(function() {
+         $(window).scroll(function() {
+           
+           if ($(this).scrollTop() > 500) {
+             $('.navbar').fadeOut();
+             
+           }else{
+             $('.navbar').fadeIn();
+           }
+         });
+       });
+     });
+    
+    }(jQuery));
+    </script>-->
+   
+    
+<!--  <script>
+$(function(){
+    $('#header_nav').data('size','big');
+});
+
+$(window).scroll(function(){
+    if($(document).scrollTop() > 0)
+    {
+        if($('#header_nav').data('size') == 'big')
+        {
+            $('#header_nav').data('size','small');
+            $('#header_nav').stop().animate({
+                height:'40px'
+            },600);
+        }
+    }
+    else
+    {
+        if($('#header_nav').data('size') == 'small')
+        {
+            $('#header_nav').data('size','big');
+            $('#header_nav').stop().animate({
+                height:'100px'
+            },600);
+        }  
+    }
+});
+    
+    </script> -->
+  
+  
+  
+
+
+</body>
+</html>
