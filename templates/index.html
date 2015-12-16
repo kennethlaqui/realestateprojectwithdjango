@@ -26,7 +26,7 @@
     <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
  
     <!-- logo -->
-   <link rel="shortcut icon" href="img/logo.png">
+   <link rel="shortcut icon" href="{% static 'img/logo.png '%}">
   
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,7 +62,7 @@
            
            <li><a href="#home">HOME</a></li>
           
-           <li><a href="#agent">AGENTS</a></li>
+           <li><a href="{% url 'prof' %}">AGENTS</a></li>
            <li><a href="#gallery">GALLERY</a></li>
            <li><a href="#services">SERVICES</a></li>
             <li><a href="#about">ABOUT</a></li>
